@@ -1,0 +1,38 @@
+{
+  "name": "trusted-admin-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack -p 3000",
+    "build": "next build --webpack",
+    "start": "next start -p 3000",
+    "typecheck": "next typegen && tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "tsc src/lib/contracts.ts src/auth/client.ts --rootDir src --outDir .test-build --module CommonJS --moduleResolution Node --target ES2022 --esModuleInterop --skipLibCheck && node --test test/*.test.cjs",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "test:ui": "node scripts/ui-check.cjs"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "10.12.0",
+    "eslint-config-prettier": "10.1.8",
+    "playwright": "1.57.0",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.71.1"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
